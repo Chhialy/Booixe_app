@@ -1,0 +1,14 @@
+/build/
+.dart_tool/
+.packages
+.pub/
+.idea/
+.vscode/
+android/.gradle/
+**/local.properties
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db

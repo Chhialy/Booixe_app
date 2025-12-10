@@ -1,0 +1,38 @@
+name: my_app
+description: A minimal Flutter project scaffolded by Copilot.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.10.0
+
+flutter:
+  uses-material-design: true
+  # Assets: add image assets here (place your logo under assets/images/)
+  assets:
+    - assets/images/
+
+  # To use Khmer fonts, add your font files under assets/fonts/ and register them here.
+  # fonts:
+  #   - family: Siemreap
+  #     fonts:
+  #       - asset: assets/fonts/Siemreap-Regular.ttf
+  #       - asset: assets/fonts/Siemreap-Bold.ttf
+  #         weight: 700
+
+# Configuration for flutter_launcher_icons to update Android/iOS app icons
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/logo.png"
