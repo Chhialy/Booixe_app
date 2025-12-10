@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
+import 'sell_page.dart';
+import 'community_page.dart';
+import 'profile_page.dart';
 
 class Research extends StatelessWidget {
   const Research({super.key});
@@ -6,218 +10,627 @@ class Research extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () => Navigator.maybePop(context),
-        ),
-        title: const Text('ស្វែងរក', style: TextStyle(color: Colors.black)),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        child: Container(
-          width: double.infinity,
-          clipBehavior: Clip.antiAlias,
-          color: Colors.white,
-          child: Stack(
-            children: [
-              Positioned(
-                left: 21,
-                top: 563,
-                child: Container(
-                  width: 189,
-                  height: 270,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        width: 1,
-                        color: Color(0xFFE0E3E7),
-                      ),
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Column(
+          children: [
+            // Header with title
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              child: Row(
+                children: [
+                  GestureDetector(
+                    onTap: () => Navigator.pop(context),
+                    child: const Icon(Icons.arrow_back_ios, size: 20),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 27,
-                top: 571,
-                child: Container(
-                  width: 176,
-                  height: 140,
-                  decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: NetworkImage("https://placehold.co/176x140"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
+                  const SizedBox(width: 8),
+                  Image.asset(
+                    'assets/images/logo.png',
+                    width: 32,
+                    height: 32,
+                    errorBuilder: (context, error, stackTrace) {
+                      return Container(
+                        width: 32,
+                        height: 32,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFE8F5E9),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: const Icon(Icons.book,
+                            color: Color(0xFF00A63E), size: 20),
+                      );
+                    },
                   ),
-                ),
-              ),
-              Positioned(
-                left: 236,
-                top: 569,
-                child: Container(
-                  width: 176,
-                  height: 140,
-                  decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: NetworkImage("https://placehold.co/176x140"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 20,
-                top: 272,
-                child: Container(
-                  width: 189,
-                  height: 270,
-                  decoration: ShapeDecoration(
-                    color: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      side: const BorderSide(
-                        width: 1,
-                        color: Color(0xFFE0E3E7),
-                      ),
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    shadows: const [
-                      BoxShadow(
-                        color: Color(0x3F000000),
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                        spreadRadius: 0,
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 26,
-                top: 279,
-                child: Container(
-                  width: 176,
-                  height: 140,
-                  decoration: ShapeDecoration(
-                    image: const DecorationImage(
-                      image: NetworkImage("https://placehold.co/176x140"),
-                      fit: BoxFit.fill,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                  ),
-                ),
-              ),
-              Positioned(
-                left: 30,
-                top: 115,
-                child: SizedBox(
-                  width: 264,
-                  height: 22,
-                  child: Text(
-                    'ស្វែងរកសៀវភៅដែលអ្នក​ចូលចិត្ត​ជាមួយ​ Booxie',
+                  const SizedBox(width: 8),
+                  const Text(
+                    'ស្វែងរកសៀវភៅសិក្សា',
                     style: TextStyle(
-                      color: Colors.black.withValues(alpha: 0.70),
-                      fontSize: 14,
-                      fontFamily: 'Siemreap',
-                      fontWeight: FontWeight.w400,
-                      height: 1.57,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
+                ],
               ),
-              Positioned(
-                left: 12,
-                top: 0,
-                child: Container(
-                  width: 64,
-                  height: 53,
-                  padding: const EdgeInsets.only(left: 16, right: 6),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        '9:41',
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 17,
-                          fontFamily: 'SF Pro',
-                          fontWeight: FontWeight.w600,
-                          height: 1.29,
-                        ),
-                      ),
-                    ],
+            ),
+
+            // Subtitle
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'ស្វែងរកសៀវភៅដែលអ្នកចូលចិត្តជាមួយ Booxie',
+                  style: TextStyle(
+                    fontSize: 13,
+                    color: Colors.black.withOpacity(0.6),
                   ),
                 ),
               ),
-              Positioned(
-                left: 345,
-                top: 12,
-                child: Container(
-                  width: 84,
-                  height: 30.52,
-                  padding: const EdgeInsets.only(left: 6, right: 16),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Opacity(
-                        opacity: 0.35,
-                        child: Container(
-                          width: 25,
-                          height: 13,
-                          decoration: ShapeDecoration(
-                            shape: RoundedRectangleBorder(
-                              side: const BorderSide(
-                                width: 1,
-                                color: Colors.black,
-                              ),
-                              borderRadius: BorderRadius.circular(4.30),
-                            ),
+            ),
+            const SizedBox(height: 12),
+
+            // Search bar
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Container(
+                height: 44,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF5F5F5),
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(color: const Color(0xFFB9F8CF), width: 2),
+                ),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 12),
+                    const Icon(Icons.search,
+                        color: Color(0xFF858585), size: 20),
+                    const SizedBox(width: 8),
+                    const Expanded(
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'ស្វែងរកសៀវភៅសិក្សា ប្រធានបទ ឬថ្នាក់...',
+                          hintStyle: TextStyle(
+                            color: Color(0xFF858585),
+                            fontSize: 12,
                           ),
+                          border: InputBorder.none,
+                          isDense: true,
+                          contentPadding: EdgeInsets.zero,
                         ),
                       ),
-                      Container(
-                        width: 21,
-                        height: 9,
-                        decoration: ShapeDecoration(
-                          color: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(2.50),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.all(4),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 8),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF00A63E),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: const Text(
+                        'ស្វែងរក',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
+
+            // Category filter buttons
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Row(
+                children: [
+                  _FilterChip(label: 'រកមើលសៀវភៅ', isSelected: true),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'សៀវភៅសិក្សា', isSelected: false),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'ប្រលោមលោក​រឿង', isSelected: false),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'អង់គ្លេស', isSelected: false),
+                  const SizedBox(width: 8),
+                  _FilterChip(label: 'សៀវភៅថ្មី', isSelected: false),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+
+            // Product grid
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    // Row 1
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book1.png',
+                            title: 'វិញ្ញាសាប្រឡងចាក់ផ្កុល( គណិតវិទ្យា )',
+                            author: 'សារុន',
+                            price: '5,000៛',
+                            originalPrice: '6,000៛',
+                            rating: '4.0',
+                            badgeText: 'ថ្មី១៥!',
+                            badgeColor: const Color(0xFF00A63E),
                           ),
                         ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book2.png',
+                            title: 'សាដារបស់របង់រ៉ែ',
+                            author: 'Sovan pech',
+                            price: '៛១',
+                            originalPrice: '១០,០០០៛',
+                            rating: '4.8',
+                            badgeText: null,
+                            badgeColor: null,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Row 2
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book3.png',
+                            title: 'Before the coffee gets cold',
+                            author: 'លោក ណា',
+                            price: '៥០,០០០៛',
+                            originalPrice: '៤៨,០០០៛',
+                            rating: '4.8',
+                            badgeText: '១០!',
+                            badgeColor: const Color(0xFF00A63E),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book4.png',
+                            title: 'English Grammer',
+                            author: 'នីតា សុភា',
+                            price: '៦,០០០៛',
+                            originalPrice: '១២,០០០៛',
+                            rating: '4.0',
+                            badgeText: 'ថ្មី១៥!',
+                            badgeColor: const Color(0xFF00A63E),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Row 3
+                    Row(
+                      children: [
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book5.png',
+                            title: 'ធ្វេះស្ទួយរហ័រស',
+                            author: 'សង់ សារ៉ា',
+                            price: '៩,០០០៛',
+                            originalPrice: '១២,០០០៛',
+                            rating: '4.0',
+                            badgeText: 'ថ្មី១៥!',
+                            badgeColor: const Color(0xFF00A63E),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: _BookCard(
+                            imageAsset: 'assets/images/book6.png',
+                            title: 'កុលាបប៉ៃលិន',
+                            author: 'នីតា​ សុភា',
+                            price: '៦,០០០៛',
+                            originalPrice: '១២,០០០៛',
+                            rating: '4.0',
+                            badgeText: 'ថ្មី១៥!',
+                            badgeColor: const Color(0xFF00A63E),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 100),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      // Bottom Navigation Bar
+      bottomNavigationBar: Container(
+        height: 70,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, -2),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomeScreen()),
+                );
+              },
+              child: _NavBarItem(
+                icon: Icons.home_outlined,
+                label: 'ទំព័រដើម',
+                isSelected: false,
+              ),
+            ),
+            _NavBarItem(
+              icon: Icons.search,
+              label: 'ស្វែងរក',
+              isSelected: true,
+            ),
+            // Center add button
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SellPage()),
+                );
+              },
+              child: Container(
+                width: 50,
+                height: 50,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF00A63E),
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF00A63E).withOpacity(0.3),
+                      blurRadius: 8,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                ),
+                child: const Icon(Icons.add, color: Colors.white, size: 28),
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const CommunityPage()),
+                );
+              },
+              child: _NavBarItem(
+                icon: Icons.people_outline,
+                label: 'សហគមន៍',
+                isSelected: false,
+              ),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+              },
+              child: _NavBarItem(
+                icon: Icons.person_outline,
+                label: 'គណនី',
+                isSelected: false,
+              ),
+            ),
+          ],
+        ),
+      ),
+
+      // Floating chat button
+      floatingActionButton: Container(
+        width: 50,
+        height: 50,
+        margin: const EdgeInsets.only(bottom: 70),
+        decoration: BoxDecoration(
+          color: const Color(0xFF00A63E),
+          borderRadius: BorderRadius.circular(25),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0xFF00A63E).withOpacity(0.3),
+              blurRadius: 8,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: const Icon(Icons.chat_bubble_outline,
+            color: Colors.white, size: 24),
+      ),
+    );
+  }
+}
+
+// Filter chip widget
+class _FilterChip extends StatelessWidget {
+  final String label;
+  final bool isSelected;
+
+  const _FilterChip({
+    required this.label,
+    required this.isSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      decoration: BoxDecoration(
+        color: isSelected ? const Color(0xFF00A63E) : Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: isSelected ? const Color(0xFF00A63E) : const Color(0xFFE0E0E0),
+        ),
+      ),
+      child: Text(
+        label,
+        style: TextStyle(
+          fontSize: 12,
+          color: isSelected ? Colors.white : Colors.black87,
+          fontWeight: isSelected ? FontWeight.w500 : FontWeight.normal,
+        ),
+      ),
+    );
+  }
+}
+
+// Book card widget
+class _BookCard extends StatelessWidget {
+  final String imageAsset;
+  final String title;
+  final String author;
+  final String price;
+  final String originalPrice;
+  final String rating;
+  final String? badgeText;
+  final Color? badgeColor;
+
+  const _BookCard({
+    required this.imageAsset,
+    required this.title,
+    required this.author,
+    required this.price,
+    required this.originalPrice,
+    required this.rating,
+    this.badgeText,
+    this.badgeColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.08),
+            blurRadius: 8,
+            offset: const Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Image with favorite icon and badge
+          Stack(
+            children: [
+              ClipRRect(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(12)),
+                child: Image.asset(
+                  imageAsset,
+                  height: 140,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) {
+                    return Container(
+                      height: 140,
+                      color: const Color(0xFFF5F5F5),
+                      child: const Center(
+                        child: Icon(Icons.book,
+                            size: 50, color: Color(0xFFCCCCCC)),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              // Favorite icon
+              Positioned(
+                top: 8,
+                right: 8,
+                child: Container(
+                  width: 28,
+                  height: 28,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        blurRadius: 4,
                       ),
                     ],
                   ),
+                  child:
+                      const Icon(Icons.favorite, color: Colors.red, size: 16),
                 ),
               ),
-              // ... other Positioned children (kept as in the snippet)
             ],
           ),
-        ),
+
+          // Content
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 2),
+
+                // Author
+                Text(
+                  author,
+                  style: TextStyle(
+                    fontSize: 11,
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+                const SizedBox(height: 6),
+
+                // Badge and Rating row
+                Row(
+                  children: [
+                    if (badgeText != null)
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 6, vertical: 2),
+                        decoration: BoxDecoration(
+                          color: badgeColor ?? const Color(0xFF00A63E),
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          badgeText!,
+                          style: const TextStyle(
+                            fontSize: 9,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    if (badgeText != null) const SizedBox(width: 6),
+                    const Icon(Icons.star, color: Color(0xFFFFB800), size: 12),
+                    const SizedBox(width: 2),
+                    Text(
+                      rating,
+                      style: const TextStyle(
+                        fontSize: 11,
+                        color: Colors.black54,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 6),
+
+                // Price
+                Row(
+                  children: [
+                    Text(
+                      price,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFF00A63E),
+                      ),
+                    ),
+                  ],
+                ),
+
+                // Original price (strikethrough)
+                Text(
+                  originalPrice,
+                  style: TextStyle(
+                    fontSize: 10,
+                    color: Colors.red.withOpacity(0.7),
+                    decoration: TextDecoration.lineThrough,
+                  ),
+                ),
+                const SizedBox(height: 8),
+
+                // Add to cart button
+                Container(
+                  width: double.infinity,
+                  padding: const EdgeInsets.symmetric(vertical: 8),
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF00A63E),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'ដាក់ក្នុងកន្រ្រក',
+                      style: TextStyle(
+                        fontSize: 11,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+// Navigation bar item widget
+class _NavBarItem extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final bool isSelected;
+
+  const _NavBarItem({
+    required this.icon,
+    required this.label,
+    required this.isSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          icon,
+          size: 24,
+          color: isSelected ? const Color(0xFF00A63E) : Colors.grey,
+        ),
+        const SizedBox(height: 4),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 10,
+            color: isSelected ? const Color(0xFF00A63E) : Colors.grey,
+          ),
+        ),
+      ],
     );
   }
 }

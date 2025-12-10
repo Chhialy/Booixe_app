@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 
 import 'counter.dart';
 import 'research.dart';
-import 'app_shell.dart';
+import 'sell_page.dart';
+import 'home_page.dart';
 
 void main() {
   runApp(
@@ -25,10 +26,11 @@ class MyApp extends StatelessWidget {
         fontFamily: 'Siemreap',
         scaffoldBackgroundColor: const Color(0xFFF2FDF5),
       ),
-      home: const AppShell(),
+      home: const HomePage(),
       routes: {
         '/details': (context) => const DetailsPage(),
         '/research': (context) => const Research(),
+        '/sell': (context) => const SellPage(),
       },
     );
   }

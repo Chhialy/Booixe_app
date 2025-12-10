@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -148,52 +149,75 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 24),
 
                     // Section title
                     const Text(
-                      'ហេតុអ្វីជ្រើសរើស Booxie?',
+                      'ហេតុអ្វីជ្រើសរើស Booxie ?',
                       style: TextStyle(
-                        color: Colors.black87,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
+                        color: Color(0xFF2D3748),
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 14),
+                    const SizedBox(height: 6),
 
-                    // Benefits 2x2 grid with checkmarks
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: _BenefitItem(
-                            title: 'អ្នកលក់ដែលបានផ្ទៀងផ្ទាត់',
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: _BenefitItem(
-                            title: 'ការទូទាត់សុវត្ថិភាព',
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Row(
-                      children: const [
-                        Expanded(
-                          child: _BenefitItem(
-                            title: 'កាលីទំនាក់ទំនង',
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: _BenefitItem(
-                            title: 'ស្វែងរក',
-                          ),
-                        ),
-                      ],
+                    // Section subtitle
+                    const Text(
+                      'អ្វីៗគ្រប់យ៉ាងដែលអ្នកត្រូវការសម្រាប់ដំណើរសិក្សារបស់អ្នក',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xFF718096),
+                        fontSize: 13,
+                      ),
                     ),
                     const SizedBox(height: 20),
+
+                    // Benefits 2x2 grid with colored checkmarks
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Expanded(
+                          child: _BenefitItem(
+                            checkColor: Color(0xFF9F7AEA), // Purple
+                            title: 'អ្នកលក់ដែលបានផ្ទៀងផ្ទាត់',
+                            subtitle: 'ទិញដោយទំនុកចិត្តពីអ្នកលក់',
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: _BenefitItem(
+                            checkColor: Color(0xFFE53E3E), // Red
+                            title: 'ការទូទាត់សុវត្ថិភាព',
+                            subtitle: 'ការបញ្ជលវត្ថារបស់ធនាគារ ABA និង ACLEDA',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Expanded(
+                          child: _BenefitItem(
+                            checkColor: Color(0xFF38A169), // Green
+                            title: 'ការដឹកជញ្ជូនលឿន',
+                            subtitle:
+                                'ភាពជាដៃគូជាមួយ J&T Express ជាមួយការបញ្ជុះតម្លៃពិសេស',
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: _BenefitItem(
+                            checkColor: Color(0xFF3182CE), // Blue
+                            title: 'ពិន្ទុរង្វាន់',
+                            subtitle:
+                                'ទទួលបានពិន្ទុលើការទិញ និងការបញ្ចុះតំាងអស់',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
                   ],
                 ),
               ),
@@ -202,27 +226,30 @@ class HomePage extends StatelessWidget {
             // Bottom button
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              decoration: BoxDecoration(
-                color: const Color(0xFFF5FBF7),
+              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+              decoration: const BoxDecoration(
+                color: Color(0xFFF5FBF7),
               ),
               child: ElevatedButton(
                 onPressed: () {
-                  // Navigate to next screen or login
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF4CAF50),
+                  backgroundColor: const Color(0xFF68D391),
                   foregroundColor: Colors.white,
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  padding: const EdgeInsets.symmetric(vertical: 18),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                   elevation: 0,
                 ),
                 child: const Text(
-                  'ចាប់ផ្តើម',
+                  'ចាប់ផ្ដើម',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -300,34 +327,54 @@ class _FeatureCard extends StatelessWidget {
   }
 }
 
-// Benefit item widget with checkmark (compact version for 2x2 grid)
+// Benefit item widget with colored checkmark
 class _BenefitItem extends StatelessWidget {
+  final Color checkColor;
   final String title;
+  final String subtitle;
 
-  const _BenefitItem({required this.title});
+  const _BenefitItem({
+    required this.checkColor,
+    required this.title,
+    required this.subtitle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          width: 20,
-          height: 20,
-          decoration: const BoxDecoration(
-            color: Color(0xFF4CAF50),
+          width: 24,
+          height: 24,
+          decoration: BoxDecoration(
+            color: checkColor,
             shape: BoxShape.circle,
           ),
-          child: const Icon(Icons.check, color: Colors.white, size: 14),
+          child: const Icon(Icons.check, color: Colors.white, size: 16),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 10),
         Expanded(
-          child: Text(
-            title,
-            style: const TextStyle(
-              color: Colors.black87,
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-            ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: const TextStyle(
+                  color: Color(0xFF2D3748),
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              const SizedBox(height: 2),
+              Text(
+                subtitle,
+                style: const TextStyle(
+                  color: Color(0xFF718096),
+                  fontSize: 11,
+                ),
+              ),
+            ],
           ),
         ),
       ],
