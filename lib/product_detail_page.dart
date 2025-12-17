@@ -4,8 +4,6 @@ import 'research.dart';
 import 'donate_page.dart';
 import 'community_page.dart';
 import 'profile_page.dart';
-import 'cart_page.dart';
-import 'checkout_page.dart';
 
 class ProductDetailPage extends StatelessWidget {
   final String? productName;
@@ -456,10 +454,11 @@ class ProductDetailPage extends StatelessWidget {
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CartPage(),
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('បានបន្ថែមទៅកន្ត្រក់!'),
+                            backgroundColor: Color(0xFF00A63E),
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },
@@ -489,10 +488,11 @@ class ProductDetailPage extends StatelessWidget {
                     child: GestureDetector(
                       onTap: () {
                         // Navigate to checkout
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CheckoutPage(),
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('កំពុងទិញ...'),
+                            backgroundColor: Color(0xFFFFB800),
+                            duration: Duration(seconds: 2),
                           ),
                         );
                       },

@@ -4,6 +4,8 @@ import 'donate_page.dart';
 import 'community_page.dart';
 import 'profile_page.dart';
 import 'product_detail_page.dart';
+import 'book_category_page.dart';
+import 'chat_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -222,20 +224,42 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: _CategoryButton(
-                                  icon: Icons.menu_book,
-                                  label: 'រកមើលសៀវភៅ',
-                                  color: const Color(0xFF00A63E),
-                                  bgColor: const Color(0xFFE8F5E9),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BookCategoryPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: _CategoryButton(
+                                    icon: Icons.menu_book,
+                                    label: 'ប្រភេទសៀវភៅ',
+                                    color: const Color(0xFF00A63E),
+                                    bgColor: const Color(0xFFE8F5E9),
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 16),
                               Expanded(
-                                child: _CategoryButton(
-                                  icon: Icons.volunteer_activism,
-                                  label: 'បរិច្ចាគសៀវភៅ',
-                                  color: const Color(0xFF155DFC),
-                                  bgColor: const Color(0xFFE3F2FD),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const DonatePage(),
+                                      ),
+                                    );
+                                  },
+                                  child: _CategoryButton(
+                                    icon: Icons.volunteer_activism,
+                                    label: 'បរិច្ចាគសៀវភៅ',
+                                    color: const Color(0xFF155DFC),
+                                    bgColor: const Color(0xFFE3F2FD),
+                                  ),
                                 ),
                               ),
                             ],
@@ -244,20 +268,41 @@ class HomeScreen extends StatelessWidget {
                           Row(
                             children: [
                               Expanded(
-                                child: _CategoryButton(
-                                  icon: Icons.people,
-                                  label: 'សហគមន៍',
-                                  color: const Color(0xFF9810FA),
-                                  bgColor: const Color(0xFFF3E5F5),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const CommunityPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: _CategoryButton(
+                                    icon: Icons.people,
+                                    label: 'សហគមន៍',
+                                    color: const Color(0xFF9810FA),
+                                    bgColor: const Color(0xFFF3E5F5),
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 16),
                               Expanded(
-                                child: _CategoryButton(
-                                  icon: Icons.chat_bubble_outline,
-                                  label: 'សារ',
-                                  color: const Color(0xFFF54A00),
-                                  bgColor: const Color(0xFFFFF3E0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => const ChatPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: _CategoryButton(
+                                    icon: Icons.chat_bubble_outline,
+                                    label: 'សារ',
+                                    color: const Color(0xFFF54A00),
+                                    bgColor: const Color(0xFFFFF3E0),
+                                  ),
                                 ),
                               ),
                             ],

@@ -40,7 +40,7 @@ class OrderSuccessPage extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                
+
                 // Success message
                 const Text(
                   'ការបញ្ជាទិញទទួលបានដោតជ័យ!',
@@ -52,7 +52,7 @@ class OrderSuccessPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 16),
-                
+
                 // Thank you message
                 const Text(
                   'អរគុណសម្រាប់ការកម្មង់របស់អ្នក',
@@ -63,7 +63,7 @@ class OrderSuccessPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 8),
-                
+
                 // Delivery message
                 const Text(
                   'យើងនឹងផ្ដែនដឹកផញ្ជូន់អ្នកនៅពេលវាចាល់',
@@ -74,7 +74,7 @@ class OrderSuccessPage extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 60),
-                
+
                 // Return to home button
                 GestureDetector(
                   onTap: () {
